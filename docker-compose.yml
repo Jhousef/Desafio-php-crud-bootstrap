@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  db:
+    container_name: db
+    image: mysql:5.7.22
+    command: --innodb-use-native-aio=0
+    restart: always
+    ports:
+      - "3306:3306"
+    volumes:
+      - "./datadir:/var/lib/mysql"
+    environment:
+      MYSQL_DATABASE: app
+      MYSQL_ROOT_PASSWORD: 2000
